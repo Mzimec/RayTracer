@@ -1,0 +1,156 @@
+{
+  "width": 800,
+  "height": 800,
+  "outputName": "render.pmf",
+  "backgroundColor": [ 0.0, 0.0, 0.0 ],
+  "renderType": 3,
+  "camera": {
+    "position": [ 2.0, 5.0, -15.0 ],
+    "lookAt": [ 0, 0, 6 ],
+    "up": [ 0, 1, 0 ],
+    "fieldOfView": 45.0,
+    "width": 800,
+    "height": 800
+  },
+  "materials": [
+    {
+      "name": "redMaterial",
+      "ambient": [ 0.1, 0.0, 0.0 ],
+      "diffuse": [ 0.7, 0.0, 0.0 ],
+      "specular": [ 1, 1, 1 ],
+      "shininess": 80.0,
+      "reflectivity": 0.0,
+      "transparency": 0.0,
+      "refractiveIndex": 1.5,
+      "isReflective": false,
+      "isTransparent": false
+    },
+    {
+      "name": "blueMaterial",
+      "ambient": [ 0.0, 0.0, 0.1 ],
+      "diffuse": [ 0.0, 0.0, 0.7 ],
+      "specular": [ 0, 0, 0 ],
+      "shininess": 32.0,
+      "reflectivity": 0.5,
+      "transparency": 0,
+      "refractiveIndex": 1,
+      "isReflective": true,
+      "isTransparent": false
+    },
+    {
+      "name": "aMaterial",
+      "ambient": [ 0.0, 0.1, 0.1 ],
+      "diffuse": [ 0.0, 0.5, 0.5 ],
+      "specular": [ 0, 0, 0 ],
+      "shininess": 32.0,
+      "reflectivity": 1,
+      "transparency": 0,
+      "refractiveIndex": 1,
+      "isReflective": false,
+      "isTransparent": false
+    },
+    {
+      "name": "bMaterial",
+      "ambient": [ 0.0, 0.0, 0.0 ],
+      "diffuse": [ 0.1, 0.1, 0.1 ],
+      "specular": [ 0, 0, 0 ],
+      "shininess": 32.0,
+      "reflectivity": 0.8,
+      "transparency": 0,
+      "refractiveIndex": 1,
+      "isReflective": true,
+      "isTransparent": false
+    },
+    {
+      "name": "cMaterial",
+      "ambient": [ 0.1, 0.0, 0.1 ],
+      "diffuse": [ 0.5, 0.0, 0.5 ],
+      "specular": [ 0, 0, 0 ],
+      "shininess": 32.0,
+      "reflectivity": 0.5,
+      "transparency": 0,
+      "refractiveIndex": 1,
+      "isReflective": false,
+      "isTransparent": false
+    },
+    {
+      "name": "dMaterial",
+      "ambient": [ 0.1, 0.1, 0.0 ],
+      "diffuse": [ 0.5, 0.5, 0.0 ],
+      "specular": [ 0, 0, 0 ],
+      "shininess": 32.0,
+      "reflectivity": 0.5,
+      "transparency": 0,
+      "refractiveIndex": 1,
+      "isReflective": false,
+      "isTransparent": false
+    }
+  ],
+  "objects": [
+    {
+      "type": "Sphere",
+      "material": "redMaterial",
+      "position": [ 0, 0, 0 ],
+      "radius": 1,
+      "height": 0,
+      "normal": [ 0, 0, 0 ]
+    },
+    {
+      "type": "Plane",
+      "material": "blueMaterial",
+      "position": [ 0, 0, 20 ],
+      "radius": 0,
+      "height": 0,
+      "normal": [ 0, 0, -1 ]
+    },
+    {
+      "type": "Plane",
+      "material": "aMaterial",
+      "position": [ 0, 10, 0 ],
+      "radius": 0,
+      "height": 0,
+      "normal": [ 0, -1, 0 ]
+    },
+    {
+      "type": "Plane",
+      "material": "bMaterial",
+      "position": [ 0, -1, 0 ],
+      "radius": 0,
+      "height": 0,
+      "normal": [ 0, 1, 0 ]
+    },
+    {
+      "type": "Plane",
+      "material": "cMaterial",
+      "position": [ 10, 0, 0 ],
+      "radius": 0,
+      "height": 0,
+      "normal": [ -1, 0, 0 ]
+    },
+    {
+      "type": "Plane",
+      "material": "dMaterial",
+      "position": [ -10, 0, 0 ],
+      "radius": 0,
+      "height": 0,
+      "normal": [ 1, 0, 0 ]
+    }
+  ],
+  "lights": [
+    {
+      "type": "PointLight",
+      "intensity": [ 200, 200, 200 ],
+      "position": [ 5, 4, -5 ]
+    },
+    {
+      "type": "PointLight",
+      "intensity": [ 100, 100, 400 ],
+      "position": [ -5, 4, -5 ]
+    },
+    {
+      "type": "AmbientLight",
+      "intensity": [ 0.5, 0.5, 0.5 ],
+      "position": [ 0, 0, 0 ]
+    }
+  ]
+}
