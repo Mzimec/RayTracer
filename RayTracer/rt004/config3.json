@@ -1,0 +1,195 @@
+{
+  "MaxDepth": 20,
+  "OutputName": "render.pfm",
+  "Spp": 1000,
+  "IsPathTraced": true,
+  "Materials": [
+    {
+      "Name": "CheckMat",
+      "ScatterModels": [ "PhongSpecularModel", "LambertianDiffuse" ],
+      "Weights": [ 0.5, 0.5 ],
+      "Ambient": [ 0.1, 0.0, 0.0 ],
+      "Diffuse": [ 0.7, 0.7, 0.0 ],
+      "Specular": [ 1.0, 1.0, 1.0 ],
+      "Shininess": 32,
+      "Reflectivity": 0.6,
+      "NormalTexture": "NormalMap.png",
+      "NoiseTexture": "Marble"
+    },
+    {
+      "Name": "YellowMat",
+      "ScatterModels": [ "LambertianDiffuse" ],
+      "Weights": [ 1 ],
+      "Ambient": [ 0.1, 0.0, 0.0 ],
+      "Diffuse": [ 0.8, 0.8, 0.3 ],
+      "Specular": [ 1.0, 1.0, 1.0 ],
+      "Shininess": 32,
+      "Reflectivity": 1.0
+    },
+    {
+      "Name": "PurpleMat",
+      "ScatterModels": [ "LambertianDiffuse" ],
+      "Weights": [ 1 ],
+      "Ambient": [ 0.1, 0.0, 0.0 ],
+      "Diffuse": [ 0.8, 0.3, 0.8 ],
+      "Specular": [ 1.0, 1.0, 1.0 ],
+      "Shininess": 32,
+      "Reflectivity": 1.0
+    },
+    {
+      "Name": "MirrorMat",
+      "ScatterModels": [ "PhongSpecularModel", "PerfectReflection" ],
+      "Weights": [ 0.3, 0.7 ],
+      "Ambient": [ 0.1, 0.0, 0.0 ],
+      "Diffuse": [ 0.8, 0.3, 0.8 ],
+      "Specular": [ 1.0, 1.0, 1.0 ],
+      "Shininess": 32,
+      "Reflectivity": 1.0
+    },
+    {
+      "Name": "LightMat",
+      "EmissiveModels": [ "ConstantEmission" ],
+      "Ambient": [ 0.1, 0.0, 0.0 ],
+      "Diffuse": [ 1.0, 1.0, 1.0 ],
+      "Specular": [ 1.0, 1.0, 1.0 ]
+    },
+    {
+      "Name": "SkyMat",
+      "EmissiveModels": [ "ConstantEmission" ],
+      "Ambient": [ 0.1, 0.0, 0.0 ],
+      "Diffuse": [ 0.2, 0.2, 0.2 ],
+      "Specular": [ 1.0, 1.0, 1.0 ]
+    },
+    {
+      "Name": "TransparentMat",
+      "ScatterModels": [ "DielectricRefraction", "PhongSpecularModel" ],
+      "Weights": [ 0.7, 0.2 ],
+      "Ambient": [ 0.05, 0.05, 0.05 ],
+      "Diffuse": [ 0.1, 0.1, 0.1 ],
+      "Specular": [ 1.0, 1.0, 1.0 ],
+      "Transmittance": [ 0.8, 0.5, 0.5 ],
+      "Shininess": 32,
+      "Reflectivity": 0.4,
+      "Transparency": 1.0,
+      "RefractiveIndex": 1.3
+    },
+    {
+      "Name": "BlueMat",
+      "ScatterModels": [ "PhongSpecularModel", "LambertianDiffuse" ],
+      "Weights": [ 0.5, 0.5 ],
+      "Ambient": [ 0.1, 0.0, 0.0 ],
+      "Diffuse": [ 0.7, 0.7, 0.0 ],
+      "Specular": [ 1.0, 1.0, 1.0 ],
+      "Shininess": 32,
+      "Reflectivity": 0.6,
+      "Transparency": 0.0,
+      "RefractiveIndex": 1,
+      "Fuzziness": 0.5,
+      "DiffuseTexture": "CheckerTexture.png"
+
+    }
+  ],
+  "SceneGraph": {
+    "Root": {
+      "Name": "Root",
+      "Type": "InnerNode",
+      "Children": [
+        {
+          "Name": "CylinderNode",
+          "Type": "Mesh",
+          "Subtype": "Cylinder",
+          "Transform": {
+            "Position": [ 0, 0.1, -1 ],
+            "Rotation": [ 0, 0, 0 ],
+            "Scale": [ 1, 2, 1 ]
+          },
+          "Material": "TransparentMat"
+        },
+        {
+          "Name": "SphereNode",
+          "Type": "Mesh",
+          "Subtype": "Sphere",
+          "Transform": {
+            "Position": [ 2, 1, 2.5 ],
+            "Rotation": [ 0, 0, 0 ],
+            "Scale": [ 1, 1, 1 ]
+          },
+          "Material": "CheckMat"
+        },
+        {
+          "Name": "PlaneNodeBottom",
+          "Type": "Mesh",
+          "Subtype": "Plane",
+          "Material": "MirrorMat"
+        },
+        {
+          "Name": "PlaneNodeRight",
+          "Type": "Mesh",
+          "Subtype": "Plane",
+          "Transform": {
+            "Position": [ -10, 0, 0 ],
+            "Rotation": [ 0, 0, 90 ],
+            "Scale": [ 1, 1, 1 ]
+          },
+          "Material": "PurpleMat"
+        },
+        {
+          "Name": "PlaneNodeLeft",
+          "Type": "Mesh",
+          "Subtype": "Plane",
+          "Transform": {
+            "Position": [ 10, 0, 0 ],
+            "Rotation": [ 0, 0, 90 ],
+            "Scale": [ 1, 1, 1 ]
+          },
+          "Material": "PurpleMat"
+        },
+        {
+          "Name": "PlaneNodeFront",
+          "Type": "Mesh",
+          "Subtype": "Plane",
+          "Transform": {
+            "Position": [ 0, 0, 20 ],
+            "Rotation": [ 90, 0, 0 ],
+            "Scale": [ 1, 1, 1 ]
+          },
+          "Material": "YellowMat"
+        },
+        {
+          "Name": "PlaneNodeTop",
+          "Type": "Mesh",
+          "Subtype": "Plane",
+          "Transform": {
+            "Position": [ 0, 10, 0 ],
+            "Rotation": [ 0, 0, 0 ],
+            "Scale": [ 1, 1, 1 ]
+          },
+          "Material": "YellowMat"
+        },
+        {
+          "Name": "PlaneNodeBack",
+          "Type": "Mesh",
+          "Subtype": "Plane",
+          "Transform": {
+            "Position": [ 0, 0, -20 ],
+            "Rotation": [ 90, 0, 0 ],
+            "Scale": [ 1, 1, 1 ]
+          },
+          "Material": "LightMat"
+        },
+        {
+          "Name": "MainCamera",
+          "Type": "Camera",
+          "Transform": {
+            "Position": [ 0, 1, -7 ],
+            "Rotation": [ 0, 180, 0 ],
+            "Scale": [ 1, 1, 1 ]
+          },
+          "FieldOfView": 45.0,
+          "Width": 800,
+          "Height": 600
+        }
+      ]
+    }
+  }
+}

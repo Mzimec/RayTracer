@@ -2,19 +2,43 @@
 
 namespace Util;
 
+/// <summary>
+/// Represents command-line options for configuring the renderer.
+/// </summary>
 public class Options {
-    [Option("config", Required = true, HelpText = "Path to the configuration file.")]
+    /// <summary>
+    /// Gets or sets the path to the configuration file.
+    /// </summary>
+    [Option('c', "config", Required = true, HelpText = "Path to the configuration file.")]
     public string? ConfigFile { get; set; }
 
-    [Option("width", Required = false, HelpText = "Image width.")]
-    public int? Width { get; set; }
+    /// <summary>
+    /// Gets or sets the maximum recursion depth for ray tracing.
+    /// </summary>
+    [Option('d', "depth", Required = false, HelpText = "Maximum recursion depth for ray tracing.")]
+    public int? MaxDepth { get; set; }
 
-    [Option("height", Required = false, HelpText = "Image height.")]
-    public int? Height { get; set; }
+    /// <summary>
+    /// Gets or sets the minimum contribution for reflection/refraction.
+    /// </summary>
+    [Option('m', "min_contribution", Required = false, HelpText = "Minimum contribution for reflection/refraction.")]
+    public float? MinContribution { get; set; }
 
-    [Option("output", Required = false, HelpText = "Output file name.")]
+    /// <summary>
+    /// Gets or sets the output file name.
+    /// </summary>
+    [Option('o', "output", Required = false, HelpText = "Output file name.")]
     public string? FileName { get; set; }
 
-    [Option("render_type", Required = false, HelpText = "Render type: 0 for basic, 1 with shadcasting, 2 with reflections, 3+ with refractions.")]
-    public int? RenderType { get; set; }
+    /// <summary>
+    /// Gets or sets the samples per pixel for rendering.
+    /// </summary>
+    [Option('s', "spp", Required = false, HelpText = "Samples per pixel for rendering.")]
+    public int? Spp { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether to enable path tracing mode.
+    /// </summary>
+    [Option('p', "path_tracing", Required = false, HelpText = "Enable path tracing mode.")]
+    public bool? PathTracing { get; set; }
 }

@@ -1,170 +1,271 @@
 ﻿using OpenTK.Mathematics;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
 using Util;
 
 namespace rt004.shared {
+    /// <summary>
+    /// Represents a rectangular tile of the image for parallel rendering.
+    /// </summary>
+    public struct Tile {
+        /// <summary>
+        /// The starting X coordinate of the tile.
+        /// </summary>
+        public int StartX;
+        /// <summary>
+        /// The starting Y coordinate of the tile.
+        /// </summary>
+        public int StartY;
+        /// <summary>
+        /// The width of the tile.
+        /// </summary>
+        public int Width;
+        /// <summary>
+        /// The height of the tile.
+        /// </summary>
+        public int Height;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Tile"/> struct.
+        /// </summary>
+        /// <param name="startX">The starting X coordinate.</param>
+        /// <param name="startY">The starting Y coordinate.</param>
+        /// <param name="width">The width of the tile.</param>
+        /// <param name="height">The height of the tile.</param>
+        public Tile(int startX, int startY, int width, int height) {
+            StartX = startX;
+            StartY = startY;
+            Width = width;
+            Height = height;
+        }
+    }
+
+    /// <summary>
+    /// Main ray tracing engine for rendering scenes.
+    /// </summary>
     public class RayTracer {
-        private List<SceneObject> objects;
-        private List<LightSource> lights;
-        private Camera camera;
-        private int maxDepth = 5; // Maximum recursion depth for ray tracing
-        private float minContribution = 0.01f; // Minimum contribution for reflection/refraction
-        private Vector3 backgroundColor = Vector3.Zero; // Background color
-        private bool areReflectionsOn; // Reflection flag
-        private bool isTransparencyOn; // Transparency flag
-        private bool isShadowingOn; // Shadow flag
+        private readonly SceneGraph _sceneGraph;
+        private readonly int _maxDepth;
+        private readonly float _minContribution;
+        private readonly Vector3 _backgroundColor;
+        private readonly int _spp;
+        private readonly bool _isPathTraced;
 
-        public RayTracer(List<SceneObject> objects, List<LightSource> lights, Camera camera, int maxDepth,
-            Vector3 backgroundColor, bool areReflectionsOn = true, bool isTransparencyOn = true, bool isShadowingOn = true) {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RayTracer"/> class.
+        /// </summary>
+        /// <param name="graph">The scene graph to render.</param>
+        /// <param name="backgroundColor">The background color.</param>
+        /// <param name="maxDepth">Maximum recursion depth for rays.</param>
+        /// <param name="minContribution">Minimum contribution threshold for rays.</param>
+        /// <param name="spp">Samples per pixel.</param>
+        public RayTracer(SceneGraph graph, Vector3 backgroundColor,
+            int maxDepth = 30, float minContribution = 0.01f, int spp = 1, bool isPT = false) {
 
-            this.objects = objects;
-            this.lights = lights;
-            this.camera = camera;
-            this.maxDepth = maxDepth;
-            this.backgroundColor = backgroundColor;
-            this.areReflectionsOn = areReflectionsOn;
-            this.isTransparencyOn = isTransparencyOn;
-            this.isShadowingOn = isShadowingOn;
+            this._sceneGraph = graph;
+            this._backgroundColor = backgroundColor;
+            this._maxDepth = maxDepth;
+            this._minContribution = minContribution;
+            this._spp = spp;
+            this._isPathTraced = isPT;
         }
 
-        public Vector3 TraceRay(Vector3 origin, Vector3 direction, int depth, float contribution) {
+        /// <summary>
+        /// Traces a ray through the scene and computes the resulting color.
+        /// </summary>
+        /// <param name="ray">The ray to trace.</param>
+        /// <param name="depth">Current recursion depth.</param>
+        /// <param name="contribution">Current contribution factor.</param>
+        /// <returns>The computed color as a <see cref="Vector3"/>.</returns>
+        public Vector3 TraceRay(Ray ray, int depth, float contribution) {
 
-            if (depth > maxDepth) return backgroundColor; // Return black if max depth is reached
+            if (depth > _maxDepth) return _backgroundColor;
 
-            // Check for intersection with all objects. And find the closest one
-            float closestT = float.MaxValue;
-            SceneObject closestObject = null;
-            Vector3 hitPoint = Vector3.Zero;
+            (SceneObject? obj, HitRecord hit) = FindClosestObject(ray);
 
-            foreach (var obj in objects) {
-                if (obj.Intersect(origin, direction, out float t)) {
-                    if (t < closestT && t > 0) {
-                        closestT = t;
-                        closestObject = obj;
-                    }
-                }
+            if (obj == null) return _backgroundColor;
+
+            if (hit.Material.ScatterModel.IsEmissive)
+                return hit.Material.ScatterModel.Emit(ray, hit);
+
+            Vector3 color = Vector3.Zero;
+            color += LightingContribution(ray, hit);
+
+            (Ray rayOut, Vector3 intensity) = hit.Material.ScatterModel.Sample(ray, hit, _isPathTraced);
+            if (intensity.Length > _minContribution) {
+                Vector3 scatteredColor = TraceRay(rayOut, depth + 1, intensity.Length);
+                color += scatteredColor * intensity;
             }
-
-            if(closestObject == null) return backgroundColor; // No intersection, return background color
-
-            // Get properties of the closest object
-            hitPoint = origin + direction * closestT; // Calculate the hit point
-            Vector3 normal = Vector3.Normalize(closestObject.GetNormal(hitPoint));
-            Material material = closestObject.GetMaterial();
-            Vector3 color = Vector3.Zero; // Start with black color
-
-            // Calculate the ligting contribution
-            color += LightingContribution(color, material, hitPoint, normal, closestObject);
-
-            // Add reflection and refraction contributions
-            if (material.IsReflective && areReflectionsOn) {
-                float reflectionContribution = material.Reflectivity * contribution;
-                if (reflectionContribution > minContribution) {
-                    Vector3 reflectDir = Reflection(direction, normal);
-                    color += material.Reflectivity * TraceRay(hitPoint + normal * 1e-4f, reflectDir, depth + 1, reflectionContribution);                    
-                }
-            }
-
-            // Add refraction contribution
-            if (material.IsTransparent && isTransparencyOn) {
-                float refractionContribution = material.Transparency * contribution;
-                if (refractionContribution > minContribution) {
-                    Vector3 refractDir = Refraction(direction, normal, material);
-                    color += material.Transparency * TraceRay(hitPoint - normal * 1e-4f, refractDir, depth + 1, refractionContribution);
-                }
-            }
-
             return color;
         }
 
-        public FloatImage Render() {
-            FloatImage image = new FloatImage(camera.ImageWidth, camera.ImageHeight, 3);
+        /// <summary>
+        /// Renders the scene to a floating-point image.
+        /// </summary>
+        /// <param name="tileSize">The size of each tile for parallel rendering.</param>
+        /// <param name="useParallel">Whether to use parallel rendering.</param>
+        /// <returns>The rendered image as a <see cref="FloatImage"/>.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the camera is not set in the scene graph.</exception>
+        public FloatImage Render(int tileSize = 16, bool useParallel = true) {
+            if (_sceneGraph.Camera == null)
+                throw new InvalidOperationException("Camera is not set in the scene graph.");
 
-            for (int x = 0; x < camera.ImageWidth; x++) {
-                for (int y = 0; y < camera.ImageHeight; y++) {
-                    var (origin, direction) = camera.GenerateRay(x, y);
-                    Vector3 color = TraceRay(origin, direction, 0,1f);
+            int width = _sceneGraph.Camera.ImageWidth;
+            int height = _sceneGraph.Camera.ImageHeight;
+            FloatImage image = new FloatImage(width, height, 3);
 
-                    // Normalize or tone map the HDR color (optional, but needed for realistic rendering)
-                    color = Vector3.Clamp(color, Vector3.Zero, Vector3.One);
+            List<Tile> tiles = new();
+            for (int x = 0; x < width; x += tileSize) {
+                for (int y = 0; y < height; y += tileSize) {
+                    int w = Math.Min(tileSize, width - x);
+                    int h = Math.Min(tileSize, height - y);
+                    tiles.Add(new Tile(x, y, w, h));
+                }
+            }
 
+            if (useParallel) {
+                List<Task> tasks = new();
 
-                    // Output or store the color for each pixel (this could be saved to an image file)
-                    image.PutPixel(x, y, [color.X, color.Y, color.Z]);
+                foreach (var tile in tiles) {
+                    tasks.Add(Task.Run(() => {
+                        RenderTile(tile, image, _sceneGraph.Camera);
+                    }));
+                }
+
+                Task.WaitAll(tasks.ToArray());
+            }
+            else {
+                foreach (var tile in tiles) {
+                    RenderTile(tile, image, _sceneGraph.Camera);
                 }
             }
 
             return image;
         }
 
-        private Vector3 LightingContribution(Vector3 color, Material material, Vector3 hitPoint, Vector3 normal, SceneObject closestObject) {
-            foreach (var light in lights) {
+        /// <summary>
+        /// Computes the lighting contribution at a hit point.
+        /// </summary>
+        /// <param name="ray">The incoming ray.</param>
+        /// <param name="hit">The hit record at the intersection point.</param>
+        /// <returns>The lighting contribution as a <see cref="Vector3"/>.</returns>
+        private Vector3 LightingContribution(Ray ray, HitRecord hit) {
+            Vector3 lightContribution = Vector3.Zero;
+            foreach (var (key, light) in _sceneGraph.Lights) {
                 if (light is AmbientLight ambientLight) {
-                    color += ambientLight.GetIntensity(hitPoint) * material.Ambient; // Ambient light contribution
+                    lightContribution += ambientLight.GetIntensity(hit.Point) * hit.Material.Ambient;
                 }
                 else {
-                    Vector3 lightDir = light.GetDirection(hitPoint);
-                    Vector3 viewDir = Vector3.Normalize(camera.Position - hitPoint);
+                    Vector3 lightDir = light.GetDirection(hit.Point);
+                    Vector3 viewDir = Vector3.Normalize(ray.Direction);
                     float lightDistance = 0;
                     bool isLightPositional = false;
-                    if (light is ITransform positionalLight) {
+                    if (light is PointLight positionalLight) {
                         isLightPositional = true;
-                        lightDistance = Vector3.Distance(positionalLight.Position, hitPoint);
+                        lightDistance = Vector3.Distance(positionalLight.Transform.Position, hit.Point);
                     }
-                    // If not in shadow, add light contribution
-                    if (!IsInShadow(hitPoint, normal, lightDir, closestObject, isLightPositional, lightDistance)) {
-                        Vector3 lightIntensity = light.GetIntensity(hitPoint);
-                        color += lightIntensity * Lighting.ComputePhongReflection(normal, lightDir, viewDir, material);
+                    Vector3 shadowFactor = GetShadowFactor(hit, -lightDir, isLightPositional, lightDistance);
+                    Vector3 lightIntensity = light.GetIntensity(hit.Point);
+                    Ray rayOut = new Ray(hit.Point + hit.Normal * 0.5e-4f, -lightDir);
+                    Vector3 scatterIntensity = hit.Material.ScatterModel.GetScatterIntensity(ray, rayOut, hit);
+
+                    lightContribution += new Vector3(
+                        lightIntensity.X * shadowFactor.X * scatterIntensity.X,
+                        lightIntensity.Y * shadowFactor.Y * scatterIntensity.Y,
+                        lightIntensity.Z * shadowFactor.Z * scatterIntensity.Z);
+                }
+            }
+            return lightContribution;
+        }
+
+        /// <summary>
+        /// Computes the shadow factor for a given hit point and light direction.
+        /// </summary>
+        /// <param name="hit">The hit record at the intersection point.</param>
+        /// <param name="lightDir">The direction to the light.</param>
+        /// <param name="isPositional">Whether the light is positional.</param>
+        /// <param name="maxDistance">The maximum distance to check for occlusion.</param>
+        /// <returns>The shadow factor as a <see cref="Vector3"/> (RGB transmittance).</returns>
+        private Vector3 GetShadowFactor(HitRecord hit, Vector3 lightDir, bool isPositional, float maxDistance) {
+            Vector3 transmittance = Vector3.One;
+
+            Vector3 shadowOrigin = hit.Point + hit.Normal * 1e-4f;
+            Ray shadowRay = new Ray(shadowOrigin, lightDir);
+
+            while (true) {
+                (SceneObject? closestObj, HitRecord closestHit) = FindClosestObject(shadowRay);
+
+                if (closestHit.T >= maxDistance && isPositional) break;
+                if (closestObj == null) break;
+                if (closestObj.Material is null) {
+                    shadowRay = new Ray(closestHit.Point - closestHit.Normal * Constants.Epsilon, shadowRay.Direction);
+                    continue;
+                }
+                if (closestObj.Material.Transmittance == Vector3.Zero) {
+                    transmittance = Vector3.Zero;
+                    break;
+                }
+
+                Vector3 t = closestObj.Material.GetTransmitance(shadowRay, closestHit);
+
+                transmittance *= t;
+
+                if (transmittance.X <= 0.01f && transmittance.Y <= 0.01f && transmittance.Z <= 0.01f) {
+                    transmittance = Vector3.Zero;
+                    break;
+                }
+
+                Vector3 newOrigin = closestHit.Point - closestHit.Normal * Constants.Epsilon;
+                shadowRay = new Ray(newOrigin, shadowRay.Direction);
+            }
+
+            return transmittance;
+        }
+
+        /// <summary>
+        /// Finds the closest object intersected by a ray.
+        /// </summary>
+        /// <param name="ray">The ray to test for intersection.</param>
+        /// <returns>
+        /// A tuple containing the closest <see cref="SceneObject"/> (or null if none) and the corresponding <see cref="HitRecord"/>.
+        /// </returns>
+        private (SceneObject? obj, HitRecord hit) FindClosestObject(Ray ray) {
+            HitRecord closestHit = default;
+            closestHit.T = float.MaxValue;
+            SceneObject? closestObj = null;
+            foreach (var (key, obj) in _sceneGraph.Objects) {
+                HitRecord tempHit = default;
+                if (obj.Intersect(ray, ref tempHit)) {
+                    if (tempHit.T < closestHit.T && tempHit.T > 0) {
+                        closestHit = tempHit;
+                        closestObj = obj;
                     }
                 }
             }
-            return color;
+            return (closestObj, closestHit);
         }
 
-        private bool IsInShadow(Vector3 hitPoint, Vector3 normal, Vector3 lightDir, SceneObject closestObject, bool isPositional, float distance) {
-            if (!isShadowingOn) return false;
+        /// <summary>
+        /// Renders a single tile of the image.
+        /// </summary>
+        /// <param name="tile">The tile to render.</param>
+        /// <param name="image">The image to write to.</param>
+        /// <param name="camera">The camera to use for ray generation.</param>
+        private void RenderTile(Tile tile, FloatImage image, Camera camera) {
+            for (int x = tile.StartX; x < tile.StartX + tile.Width; x++) {
+                for (int y = tile.StartY; y < tile.StartY + tile.Height; y++) {
+                    Vector3 color = Vector3.Zero;
+                    for (int i = 0; i < _spp; i++) {
+                        Ray ray = camera.GenerateRay(x, y);
+                        color += TraceRay(ray, 0, 1f);
+                    }
 
-            // Check if the light source is occluded by any other object
-            bool inShadow = false;
-            foreach (var obj in objects) {
-                if (obj != closestObject) { 
-                    Vector3 shadowOrigin = hitPoint + normal * 1e-4f; // Offset to avoid self-intersection 
-                    if (obj.Intersect(shadowOrigin, lightDir, out float shadowT) && shadowT > 0) {
-                        if (isPositional && distance < shadowT) continue;
-                        inShadow = true;
-                        break;
+                    color /= _spp;
+                    color = Vector3.Clamp(color, Vector3.Zero, Vector3.One);
+
+                    lock (image) {
+                        image.PutPixel(x, y, new[] { color.X, color.Y, color.Z });
                     }
                 }
             }
-            return inShadow;
         }
-
-        private Vector3 Reflection(Vector3 direction, Vector3 normal) {
-            return Vector3.Normalize(direction - 2 * Vector3.Dot(direction, normal) * normal);
-        }
-
-        private Vector3 Refraction(Vector3 direction, Vector3 normal, Material material) {
-            // Calculate the ratio of indices (1.0f is the refractive index of air)
-            float eta = 1.0f / material.RefractiveIndex;
-
-            // Compute the dot product between incoming direction and normal
-            float cosI = Vector3.Dot(normal, direction);
-            float sinT2 = eta * eta * (1 - cosI * cosI); // sin(theta_t)^2
-
-            // If total internal reflection occurs, return the reflection direction
-            if (sinT2 > 1.0f) {
-                // Use the reflection function for total internal reflection
-                return Reflection(direction, normal);
-            }
-
-            // Calculate the refracted direction using Snell's law
-            float cosT = MathF.Sqrt(1.0f - sinT2); // cos(theta_t)
-            Vector3 refractDir = eta * direction - (eta * cosI + cosT) * normal;
-
-            return Vector3.Normalize(refractDir); // Ensure the refraction direction is normalized
-        }
-
     }
 }

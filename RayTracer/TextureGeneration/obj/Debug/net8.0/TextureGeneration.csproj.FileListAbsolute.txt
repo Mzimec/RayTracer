@@ -1,0 +1,17 @@
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\bin\Debug\net8.0\TextureGeneration.exe
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\bin\Debug\net8.0\TextureGeneration.deps.json
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\bin\Debug\net8.0\TextureGeneration.runtimeconfig.json
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\bin\Debug\net8.0\TextureGeneration.dll
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\bin\Debug\net8.0\TextureGeneration.pdb
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.csproj.AssemblyReference.cache
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.AssemblyInfoInputs.cache
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.AssemblyInfo.cs
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.csproj.CoreCompileInputs.cache
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureG.4AC094F9.Up2Date
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.dll
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\refint\TextureGeneration.dll
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.pdb
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\TextureGeneration.genruntimeconfig.cache
+C:\Users\stepa\photo_graphics\photorealgraphics\solution\TextureGeneration\obj\Debug\net8.0\ref\TextureGeneration.dll

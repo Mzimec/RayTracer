@@ -3,47 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:config.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\lightsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\lightsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\lighting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\lighting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\shared\\floatimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\raytracer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\raytracer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config1.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:config1.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\rt004.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:rt004.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config2.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:config2.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config3.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:config3.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\scattermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\scattermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\tonemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\tonemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\myutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -53,8 +42,79 @@
       "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\shared\\util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\options.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\noise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\noise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\raytracer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\raytracer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\lightsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\lightsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\emissivemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\emissivemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\legacy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\legacy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\lightingmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\lightingmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\proceduralgenerators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\proceduralgenerators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\scenegraph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\scenegraph.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\sceneobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\sceneobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\texture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\texture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\vector3extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\vector3extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\transform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:shared\\transform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\render._ldr.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:render._ldr.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5D4041C-5AB2-42CB-8EA5-29BC7BD97FFB}|..\\TextureGeneration\\TextureGeneration.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\texturegeneration\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|c:\\users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\checkertexture.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{F82E2E54-52E4-4D7C-8B65-B9F4CA4822C2}|rt004.csproj|solutionrelative:checkertexture.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     }
   ],
   "DocumentGroupContainers": [
@@ -64,49 +124,179 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 20,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FloatImage.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\shared\\FloatImage.cs",
-              "RelativeDocumentMoniker": "..\\shared\\FloatImage.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\shared\\FloatImage.cs",
-              "RelativeToolTip": "..\\shared\\FloatImage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T14:58:50.422Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Lighting.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Lighting.cs",
-              "RelativeDocumentMoniker": "shared\\Lighting.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Lighting.cs",
-              "RelativeToolTip": "shared\\Lighting.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA8AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T08:30:17.196Z",
+              "Title": "rt004",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\rt004.csproj",
+              "RelativeDocumentMoniker": "rt004.csproj",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\rt004.csproj",
+              "RelativeToolTip": "rt004.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-09T13:57:06.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
+              "Title": "config1.json",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config1.json",
+              "RelativeDocumentMoniker": "config1.json",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config1.json",
+              "RelativeToolTip": "config1.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-09T13:53:35.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "config3.json",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config3.json",
+              "RelativeDocumentMoniker": "config3.json",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config3.json",
+              "RelativeToolTip": "config3.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-04T23:04:11.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Options.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Options.cs",
+              "RelativeDocumentMoniker": "shared\\Options.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Options.cs",
+              "RelativeToolTip": "shared\\Options.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T14:38:01.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "render._ldr.png",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\render._ldr.png",
+              "RelativeDocumentMoniker": "render._ldr.png",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\render._ldr.png",
+              "RelativeToolTip": "render._ldr.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-06-04T14:27:21.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MyUtil.cs",
               "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\MyUtil.cs",
               "RelativeDocumentMoniker": "shared\\MyUtil.cs",
               "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\MyUtil.cs",
               "RelativeToolTip": "shared\\MyUtil.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:17:30.702Z"
+              "WhenOpened": "2025-06-04T14:25:08.246Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
+              "Title": "ToneMapper.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\ToneMapper.cs",
+              "RelativeDocumentMoniker": "shared\\ToneMapper.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\ToneMapper.cs",
+              "RelativeToolTip": "shared\\ToneMapper.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T14:12:26.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProceduralGenerators.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\ProceduralGenerators.cs",
+              "RelativeDocumentMoniker": "shared\\ProceduralGenerators.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\ProceduralGenerators.cs",
+              "RelativeToolTip": "shared\\ProceduralGenerators.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:27:07.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Noise.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Noise.cs",
+              "RelativeDocumentMoniker": "shared\\Noise.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Noise.cs",
+              "RelativeToolTip": "shared\\Noise.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:26:29.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "CheckerTexture.png",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\CheckerTexture.png",
+              "RelativeDocumentMoniker": "CheckerTexture.png",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\CheckerTexture.png",
+              "RelativeToolTip": "CheckerTexture.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-06-02T21:32:14.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\TextureGeneration\\Program.cs",
+              "RelativeDocumentMoniker": "..\\TextureGeneration\\Program.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\TextureGeneration\\Program.cs",
+              "RelativeToolTip": "..\\TextureGeneration\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T21:20:53.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Texture.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Texture.cs",
+              "RelativeDocumentMoniker": "shared\\Texture.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Texture.cs",
+              "RelativeToolTip": "shared\\Texture.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T11:31:30.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Camera.cs",
+              "RelativeDocumentMoniker": "shared\\Camera.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Camera.cs",
+              "RelativeToolTip": "shared\\Camera.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAFcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T15:15:32.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Util.cs",
               "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\shared\\Util.cs",
               "RelativeDocumentMoniker": "..\\shared\\Util.cs",
@@ -114,129 +304,202 @@
               "RelativeToolTip": "..\\shared\\Util.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:17:05.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Options.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Options.cs",
-              "RelativeDocumentMoniker": "shared\\Options.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Options.cs",
-              "RelativeToolTip": "shared\\Options.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T21:02:42.552Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Camera.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Camera.cs",
-              "RelativeDocumentMoniker": "shared\\Camera.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Camera.cs",
-              "RelativeToolTip": "shared\\Camera.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T14:02:34.239Z",
+              "WhenOpened": "2025-05-30T23:26:00.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SceneObject.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\SceneObject.cs",
-              "RelativeDocumentMoniker": "shared\\SceneObject.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\SceneObject.cs",
-              "RelativeToolTip": "shared\\SceneObject.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAIwIsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 25,
+              "Title": "Transform.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Transform.cs",
+              "RelativeDocumentMoniker": "shared\\Transform.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Transform.cs",
+              "RelativeToolTip": "shared\\Transform.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T13:29:38.981Z"
+              "WhenOpened": "2025-05-30T13:53:06.158Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAowHYAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T13:00:55.051Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RayTracer.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\RayTracer.cs",
-              "RelativeDocumentMoniker": "shared\\RayTracer.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\RayTracer.cs",
-              "RelativeToolTip": "shared\\RayTracer.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAnwGUAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T08:20:31.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 14,
               "Title": "LightSource.cs",
               "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\LightSource.cs",
               "RelativeDocumentMoniker": "shared\\LightSource.cs",
               "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\LightSource.cs",
               "RelativeToolTip": "shared\\LightSource.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T08:10:15.987Z",
+              "WhenOpened": "2025-05-30T00:05:29.799Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Material.cs",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Material.cs",
-              "RelativeDocumentMoniker": "shared\\Material.cs",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Material.cs",
-              "RelativeToolTip": "shared\\Material.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA5wBUAAABBAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "SceneGraph.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\SceneGraph.cs",
+              "RelativeDocumentMoniker": "shared\\SceneGraph.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\SceneGraph.cs",
+              "RelativeToolTip": "shared\\SceneGraph.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T07:56:28.31Z"
+              "WhenOpened": "2025-05-28T23:51:12.68Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "rt004",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\rt004.csproj",
-              "RelativeDocumentMoniker": "rt004.csproj",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\rt004.csproj",
-              "RelativeToolTip": "rt004.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-03-03T09:02:04.846Z"
+              "DocumentIndex": 15,
+              "Title": "EmissiveModel.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\EmissiveModel.cs",
+              "RelativeDocumentMoniker": "shared\\EmissiveModel.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\EmissiveModel.cs",
+              "RelativeToolTip": "shared\\EmissiveModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T23:51:32.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwC0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T22:56:12.155Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "config.json",
-              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config.json",
-              "RelativeDocumentMoniker": "config.json",
-              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config.json",
-              "RelativeToolTip": "config.json",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAAAJIAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-03T08:26:34.351Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Config.cs",
               "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Config.cs",
               "RelativeDocumentMoniker": "shared\\Config.cs",
               "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Config.cs",
               "RelativeToolTip": "shared\\Config.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAQwCcAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAFkBAAAAAAAAAAAwwK8BAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T08:22:42.351Z",
+              "WhenOpened": "2025-05-29T00:00:00.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "SceneObject.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\SceneObject.cs",
+              "RelativeDocumentMoniker": "shared\\SceneObject.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\SceneObject.cs",
+              "RelativeToolTip": "shared\\SceneObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T22:21:28.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Legacy.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Legacy.cs",
+              "RelativeDocumentMoniker": "shared\\Legacy.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Legacy.cs",
+              "RelativeToolTip": "shared\\Legacy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T19:55:09.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Material.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Material.cs",
+              "RelativeDocumentMoniker": "shared\\Material.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Material.cs",
+              "RelativeToolTip": "shared\\Material.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T18:11:03.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Ray.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Ray.cs",
+              "RelativeDocumentMoniker": "shared\\Ray.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Ray.cs",
+              "RelativeToolTip": "shared\\Ray.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:39:31.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ScatterModel.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\ScatterModel.cs",
+              "RelativeDocumentMoniker": "shared\\ScatterModel.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\ScatterModel.cs",
+              "RelativeToolTip": "shared\\ScatterModel.cs",
+              "ViewState": "AgIAAEUBAAAAAAAAAAAcwC8BAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T14:25:40.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "config2.json",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config2.json",
+              "RelativeDocumentMoniker": "config2.json",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\config2.json",
+              "RelativeToolTip": "config2.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-26T22:22:51.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Vector3Extensions.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Vector3Extensions.cs",
+              "RelativeDocumentMoniker": "shared\\Vector3Extensions.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\Vector3Extensions.cs",
+              "RelativeToolTip": "shared\\Vector3Extensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T21:37:06.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "LightingModel.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\LightingModel.cs",
+              "RelativeDocumentMoniker": "shared\\LightingModel.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\LightingModel.cs",
+              "RelativeToolTip": "shared\\LightingModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T08:30:17.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RayTracer.cs",
+              "DocumentMoniker": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\RayTracer.cs",
+              "RelativeDocumentMoniker": "shared\\RayTracer.cs",
+              "ToolTip": "C:\\Users\\stepa\\photo_graphics\\photorealgraphics\\solution\\rt004\\shared\\RayTracer.cs",
+              "RelativeToolTip": "shared\\RayTracer.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwFsAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T08:20:31.956Z",
               "EditorCaption": ""
             }
           ]
