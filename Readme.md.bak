@@ -100,7 +100,7 @@ There are two renders from config files:
 
 Only Path Tracing Render: config3.json:
 
-![Only Path Tracing Render: config3.json](RayTracer/rt004/path_tracing.jpg)
+![Only Path Tracing Render: config3.json](rt004/path_tracing.jpg)
 
 You can see that there would be ideal to use some noise remover because the Path tracing makes a lot of noise.
 
@@ -109,11 +109,11 @@ You can see that there would be ideal to use some noise remover because the Path
 
 Only Direct Sampling: config2.json
 
-![Only Direct Sampling: config2.json](RayTracer/rt004/direct.jpg)
+![Only Direct Sampling: config2.json](rt004/direct.jpg)
 
 
 
 
 ToneMapping:
 
-![ToneMapping](RayTracer/rt004/render._ldr.png)
+![ToneMapping](rt004/render._ldr.png)
