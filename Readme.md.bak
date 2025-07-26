@@ -96,5 +96,6 @@ ToneMapping:
 I used libraries: [ComandLineParser](https://www.nuget.org/packages/commandlineparser/), 
 [OpenTK.Mathematics](https://opentk.net/api/OpenTK.Mathematics.html), 
 [SixLabours.ImageSharp.Drawing](https://sixlabors.com/products/imagesharp-drawing/).
+
 Code in [floatImage](https://github.com/Mzimec/RayTracer/tree/main/RayTracer/rt004/floatImage) is third party code by [pepcape](https://github.com/pepcape).
 

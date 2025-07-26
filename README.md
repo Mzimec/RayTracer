@@ -6,7 +6,7 @@ This is project which implements simple Raytracer which renders 3D scene of simp
 
 ## Scene
 
-Right now there are implemnted three types of Shapes - Sphere, Plane and Cylinder -- [ScenObject](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/SceneObject.cs).
+Right now there are implemnted three types of Shapes - Sphere, Plane and Cylinder -- [SceneObject](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/SceneObject.cs).
 There are defined three types of lights sources for direct lightning -- Directional, Point, Ambient -- [LightSource](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/LightSource.cs).
 There is one simple type of Emissive model for light sources while using path tracing method -- [EmissiveModel](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/EmissiveModel.cs).
 Every object has defined its intersection logic based on its geometry.
@@ -16,7 +16,7 @@ The Scene is keeping referecnces for Lights and Camera for quicker lookup in sep
 
 ## Material
 
-Material takes care of physical traits of seperate objects. [Material](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Material.cs)
+Material takes care of physical traits of seperate objects -- [Material](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Material.cs).
 It defines what kinds and with which weight Scatter Models will be used. It describes its color, transparency, diferent textures and so on of the object.
 The project is compatible with textures that overide color and bump maps (Textures that overide normals of objects). Additionaly there is defined Perlin noise generator for genrating noise textures --
 [Texture](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Texture.cs),
