@@ -165,7 +165,7 @@ namespace rt004.shared {
                     Vector3 shadowFactor = GetShadowFactor(hit, -lightDir, isLightPositional, lightDistance);
                     Vector3 lightIntensity = light.GetIntensity(hit.Point);
                     Ray rayOut = new Ray(hit.Point + hit.Normal * 0.5e-4f, -lightDir);
-                    Vector3 scatterIntensity = hit.Material.ScatterModel.GetScatterIntensity(ray, rayOut, hit);
+                    Vector3 scatterIntensity = hit.Material.ScatterModel.GetScatterIntensity(ray, new ScatterResult { RayOut = rayOut }, hit);
 
                     lightContribution += new Vector3(
                         lightIntensity.X * shadowFactor.X * scatterIntensity.X,

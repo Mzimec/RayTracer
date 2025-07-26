@@ -21,7 +21,7 @@ public class Options {
     /// <summary>
     /// Gets or sets the minimum contribution for reflection/refraction.
     /// </summary>
-    [Option('m', "min_contribution", Required = false, HelpText = "Minimum contribution for reflection/refraction.")]
+    [Option('i', "min_contribution", Required = false, HelpText = "Minimum contribution for reflection/refraction.")]
     public float? MinContribution { get; set; }
 
     /// <summary>
@@ -41,4 +41,16 @@ public class Options {
     /// </summary>
     [Option('p', "path_tracing", Required = false, HelpText = "Enable path tracing mode.")]
     public bool? PathTracing { get; set; }
+
+    /// <summary>
+    /// Gets the size of tiles in the image for multithreading.
+    /// </summary>
+    [Option('t', "tile_size", Required = false, HelpText = "Size of the tiles for multithreading.")]
+    public int? TileSize { get; set; }
+
+    /// <summary>
+    /// Gets value indicating whether the program runs on multiple threads.
+    /// </summary>
+    [Option('m', "multithreading", Required = false, HelpText = "Flag if the program runs on multiple threads")]
+    public bool? Multithreading { get; set; }
 }

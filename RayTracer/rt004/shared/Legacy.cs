@@ -4,7 +4,7 @@ namespace rt004.shared {
     public interface ILegacyScatterModel {
         IEnumerable<ScatterResult> Scatter(Ray ray, HitRecord hit, Vector3 pdf);
     }
-    public struct ScatterResult {
+    /*public struct ScatterResult {
         public Ray ScatteredRay { get; private set; }
         public Vector3 Attenuation { get; private set; }
         public float Pdf { get; private set; } // Probability Density Function value for the scattered ray
@@ -13,7 +13,7 @@ namespace rt004.shared {
         public static ScatterResult None => new() { IsValid = false };
         public static ScatterResult Create(Ray scatteredRay, Vector3 attenuation, float pdf) =>
             new() { ScatteredRay = scatteredRay, Attenuation = attenuation, Pdf = pdf, IsValid = true };
-    }
+    }*/
 
 
     public interface IReflectionModel {
@@ -41,7 +41,7 @@ namespace rt004.shared {
         }
         public abstract IEnumerable<ScatterResult> Scatter(Ray ray, HitRecord hit, Vector3 pdf);
     }
-    public class MonteCarloScatterModel : LegacyScatterModel {
+    /*public class MonteCarloScatterModel : LegacyScatterModel {
         public MonteCarloScatterModel(IDiffuseModel diffuse, IReflectionModel reflection, IRefractionModel refraction, Random? rng = null)
             : base(diffuse, reflection, refraction, rng) { }
 
@@ -61,9 +61,9 @@ namespace rt004.shared {
                 yield break;
             }
         }
-    }
+    }*/
 
-    public class MultiScatterModel : LegacyScatterModel {
+    /*public class MultiScatterModel : LegacyScatterModel {
         public MultiScatterModel(IDiffuseModel diffuse, IReflectionModel reflection, IRefractionModel refraction, Random? rng = null)
             : base(diffuse, reflection, refraction, rng) { }
         public override IEnumerable<ScatterResult> Scatter(Ray ray, HitRecord hit, Vector3 p) {
@@ -78,5 +78,5 @@ namespace rt004.shared {
                 yield return ScatterResult.Create(scattered, attenDiffuse, pdfFif);
             }
         }
-    }
+    }*/
 }

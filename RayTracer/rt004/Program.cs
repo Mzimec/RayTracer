@@ -32,6 +32,8 @@ internal class Program {
             config.MinContribution = o.MinContribution ?? config.MinContribution;
             config.Spp = o.Spp ?? config.Spp;
             config.IsPathTraced = o.PathTracing ?? config.IsPathTraced;
+            config.TileSize = o.TileSize ?? config.TileSize;
+            config.Multithreading = o.Multithreading ?? config.Multithreading;
 
             Console.WriteLine($"Program is congigured with file {o.ConfigFile}.\n");
 
@@ -47,7 +49,7 @@ internal class Program {
             RayTracer rayTracer = new RayTracer(sceneGraph, backgroundColor, config.MaxDepth, config.MinContribution, config.Spp, config.IsPathTraced);
 
             // Render Image
-            var image = rayTracer.Render();
+            var image = rayTracer.Render(config.TileSize, config.Multithreading);
 
             if (config.ToneMapping.Enabled) {
                 var ldrImage = ToneMapper.ApplyToneMapping(image);

@@ -1,106 +1,69 @@
 # Readme
 
-## First Check
+## Description
 
-I created mine gitlab repository for this project. And hopefully successfully set up all the properties for it and set up upstream
-For my second step I set up argument parsing using CommandLineParser library and reading from json config files.
-Fo third step I updated the HDR generating project given to us in /src to work with my argument parsing and then I added simple function to create some simple pattern to the image.
+This is project which implements simple Raytracer which renders 3D scene of simple geometries into a HDR image.
 
-Configuration Info:
-* Config files are in json format.
-* There is one config file named config.json with parameters: width = 800, height = 600, file name = output.pmf
+## Scene
 
-The program can take following arguments:
-* `--config`	: defining the name of the config file.
-* `--width`		: defining width in pixels of the final image.
-* `--height`	: defining height in pixels of the final image.
-* `--output`	: defining name of the output file.
+Right now there are implemnted three types of Shapes - Sphere, Plane and Cylinder. /shared/SceneObject.cs
+There are defined three types of lights sources for direct lightning - Directional, Point, Ambient
+There is one simple type of Emissive model for light sources while using path tracing method.
+Every object has defined its intersection logic based on its geometry.
+It has its Transform which defines its position, scale and rotation.
+The scene is defined in a tree graph, so you can group different objects whose Transform can be changed together.
+The Scene is keeping referecnces for Lights and Camera for quicker lookup in seperate Dictionary. 
 
-If there is no config file given, then will be used default one with values: width = 600, height = 450, file name = output.pfm
+## Material
 
-## Second Check
+Material takes care of physical traits of seperate objects. 
+It defines what kinds and with which weight Scatter Models will be used. It describes its color, transparency, diferent textures and so on of the object.
+The project is compatible with textures that overide color and bump maps (Textures that overide normals of objects). Additionaly there is defined Perlin noise generator for genrating noise textures.
 
-I created finally a prototype of renderer, while trying to use reasonable OOP programing.
-Firstly I setted up my Perspective Camera.
-Secondly I created three types of solids: Spheres, Planes and Cylinders.
-Then I implemented BRDF using Phong method.
-Created three types of light sources: Ambient, Directional and Point.
-Lastly I finaly summ all of theese components into raytracer.
+## Scatter Model
 
-Currently I already added to my raytracer shadowmapping, reflections and refractions. Although they are still kind of experimental. Feel free to try them and comment on them.
+I decided to not use global BRDF and instead decided to create Scatter Model that defines for specific objects function where is the ray reflected or refracted and what is its intensity.
+This method let me add more BRDF to the project without doing any harm to the current state. Additionally using this method different objects in the scene could have different Scatter Model making this aproach more adjustible.
+Currently there are only basic models for rendering: Lambertian Diffuse Model, Phong Specular Reflection, Dialectric Refraction, Perfect Reflection and Fuzzy Reflection
 
-Current ouptut format is .pmf.
+## Ray Tracer
 
-Now onto Configuration Info:
-* Config files are in json format.
-* There is one scene in config file named config.json.
+Ray Tracer is using Perspective Camera as Ray Generator.
+It has two types path tracing and direct tracing which can be runed.
+The tracer has option to render using multiple threads. Each thread renders one tile of a image.
+Raytracer is using jittering as a antialiasing method to reduce unwanted effects such a Moire effect.
 
-The program can take following command line arguments which overrides values in config file:
-* `--config` 		:	defining the name of the config file. This is required argument.
-* `--width`			:	defining width in pixels of the final image.
-* `--height`		:	efining height in pixels of the final image.
-* `--output`		:	defining name of the output file.
-* `--render_type`	:	defining type of rendering (0 for basic, 1 with shadowmaps, 2 with reflections, 3+ with refraction)
-* `--help` 			: 	for showing description for all the argument keywords.
+## Output
 
-## Third Check
+Output is an HDR image either saved as .hdr or .pmf.
+There is Tonemapper which uses logarithmic algorithm to convert 3D scene to desired .jpg image.
 
-I already made the renderer using OOP and had already implemented hard shadows and reflections in last version.
-In this version I switch Phongs model for specular light for Blinn-Phongs model. There will be option to switch between them.
-I added more clever way of saving. Either to PFM or to HDR based on the sufix of the output name.
-The command line arguments are the same as in the previous check.
+## Input
 
-## Fourth Check
+The input is 3D scene defined in .json file.
 
-I restructered the renderer so that every material is defined by its different BRDF models. I transfered global lightning functions; Phong and Blinn-Phong to local Scatter model.
-As well as created scatter model for dialectric refraction, perfect reflection and Lambertian Diffuse model and Fuzzy Reflection. Every model has now Scatter function to  be prepared for path tracing.
+## How to run
 
-I added antialiasing through SPP and jittering in GenerateRay method.
-
-```
-public override Ray GenerateRay(float x, float y) {
-    float jitterX = Random.Shared.NextSingle();
-    float jitterY = Random.Shared.NextSingle();
-
-    float px = (x + jitterX) / ImageWidth;
-    float py = (y + jitterY) / ImageHeight;
-
-    float sx = (2.0f * px - 1.0f) * aspectRatio * scale;
-    float sy = (1.0f - 2.0f * py) * scale;
-
-    Vector3 direction = Vector3.Normalize(forward + sx * right + sy * up);
-
-    return new Ray(Transform.Position, direction);
-}
-```
-
-When I restructered the BRDF into Scatter Models that could be held by any Material, I use for refractive meterials the DialectricRefraction.
-
-[DialectricRefraction](https://gitlab.mff.cuni.cz/svatys/photorealgraphics/-/blob/master/solution/rt004/shared/ScatterModel.cs#L287-364)
-
-I added SceneGraph class that stores scene info and actualizes its light lists etc.
-Transform is now computed through parents in the ScenGraph.
-
-From additional task I implemented one simple additional geometry that was not firstly needed. (Cylinder, Sphere, Plane) - Just these three.
-Is can use Textures: Diffuse and Normal are implemented.
-There is also a usable Perlin Noise Textures.
-There is also Tone mapping implemented with loagarithmic function.
-And Lastly the raytracer can be used with PathTracing or MIS.
-
-The program can take following command line arguments which overrides values in config file:
+The program is runned from the command line.
+The 3D scene definition is required as a .json file.
+Otherwise the program has these command line arguments which define the input file and can overwrite values define in it:
 * `-c`, `--config` 				:	defining the name of the config file. This is required argument.
 * `-o`, `--output`				:	defining name of the output file.
 * `-d`, `--depth`				:	difining max depth for tracing.
-* `-m`, `--min_contribution`	:	defining minimum contribution for tracing.
+* `-i`, `--min_contribution`	:	defining minimum contribution for tracing.
 * `-s`, `--spp`					: 	defining samples per pixel.
 * `-p`, `--path_tracing`		: 	flag for path tracing.
+* `-t`, `--tile_size`			:	defining size of the tiles for multithreading.
+* `-m`, `--multithreading`		:	flag for multithreading.
 * `--help` 						: 	for showing description for all the argument keywords.
 
-There are two renders from config files:
+If there is no config file given, then will be used default one with values: width = 600, height = 450, file name = output.pfm
+
+There are three renders from config files:
 
 Only Path Tracing Render: config3.json:
 
-![Only Path Tracing Render: config3.json](rt004/path_tracing.jpg)
+![Only Path Tracing Render: config3.json](RayTracer/rt004/path_tracing.jpg)
 
 You can see that there would be ideal to use some noise remover because the Path tracing makes a lot of noise.
 
@@ -109,11 +72,11 @@ You can see that there would be ideal to use some noise remover because the Path
 
 Only Direct Sampling: config2.json
 
-![Only Direct Sampling: config2.json](rt004/direct.jpg)
+![Only Direct Sampling: config2.json](RayTracer/rt004/direct.jpg)
 
 
 
 
 ToneMapping:
 
-![ToneMapping](rt004/render._ldr.png)
+![ToneMapping](RayTracer/rt004/render._ldr.png)

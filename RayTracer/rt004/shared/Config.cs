@@ -51,9 +51,19 @@ public class Config {
     public int Spp { get; set; } = 4;
 
     /// <summary>
-    /// Flag for PathTracing option
+    /// Flag for PathTracing option.
     /// </summary>
     public bool IsPathTraced { get; set; } = false;
+
+    /// <summary>
+    /// Size of the tiles for multithread rendering.
+    /// </summary>
+    public int TileSize { get; set; } = 16;
+
+    /// <summary>
+    /// Boolean indicating whether the program runs on multiple threads.
+    /// </summary>
+    public bool Multithreading { get; set; } = true;
 
     /// <summary>
     /// Gets or sets the tone mapping configuration.

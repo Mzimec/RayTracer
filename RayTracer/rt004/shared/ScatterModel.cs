@@ -2,6 +2,36 @@
 
 namespace rt004.shared {
     /// <summary>
+    /// Struct representing the result of a scattering event.
+    /// </summary> 
+    public struct ScatterResult {
+        /// <summary>
+        /// Outgoing ray after scattering.
+        /// </summary>
+        public Ray RayOut;
+
+        /// <summary>
+        /// Optional intensity override for the scattered ray.
+        /// </summary>
+        public Vector3? IntensityOverride;
+
+        /// <summary>
+        /// Optional PDF override for the scattered ray.
+        /// </summary>
+        public float? PdfOverride;
+
+        /// <summary>
+        /// Optional flag indicating if the ray was reflected.
+        /// </summary>
+        public bool? WasReflected;
+
+        /// <summary>
+        /// Flag indicating if the scattering was successful.
+        /// </summary>
+        public bool IsNZ => RayOut.Direction != Vector3.Zero;
+    }
+
+    /// <summary>
     /// Interface for all scattering models, which define how rays interact with surfaces.
     /// </summary>
     public interface IScatterModel {
@@ -12,7 +42,7 @@ namespace rt004.shared {
         /// <param name="hit">The hit record at the intersection point.</param>
         /// <param name="random">Random number generator for stochastic models.</param>
         /// <returns>The scattered ray.</returns>
-        Ray Scatter(Ray rayIn, HitRecord hit, Random random);
+        ScatterResult Scatter(Ray rayIn, HitRecord hit, Random random);
 
         /// <summary>
         /// Computes the intensity of the scattered ray.
@@ -21,7 +51,7 @@ namespace rt004.shared {
         /// <param name="rayOut">The outgoing (scattered) ray.</param>
         /// <param name="hit">The hit record at the intersection point.</param>
         /// <returns>The intensity as a <see cref="Vector3"/>.</returns>
-        Vector3 GetScatterIntensity(Ray rayIn, Ray rayOut, HitRecord hit);
+        Vector3 GetScatterIntensity(Ray rayIn, ScatterResult scatter, HitRecord hit);
 
         /// <summary>
         /// Gets the probability density function (PDF) value for the given scattering event.
@@ -30,7 +60,7 @@ namespace rt004.shared {
         /// <param name="rayOut">The outgoing (scattered) ray.</param>
         /// <param name="hit">The hit record at the intersection point.</param>
         /// <returns>The PDF value.</returns>
-        float GetPdf(Ray rayIn, Ray rayOut, HitRecord hit);
+        float GetPdf(Ray rayIn, ScatterResult scatter, HitRecord hit);
 
         /// <summary>
         /// Gets whether this model is used for direct lighting.
@@ -97,11 +127,11 @@ namespace rt004.shared {
         /// <param name="rayOut">The outgoing (scattered) ray.</param>
         /// <param name="hit">The hit record at the intersection point.</param>
         /// <returns>The total intensity as a <see cref="Vector3"/>.</returns>
-        public Vector3 GetScatterIntensity(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public Vector3 GetScatterIntensity(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             Vector3 totalIntensity = Vector3.Zero;
-            float cosTheta = MathF.Max(0f, Vector3.Dot(rayOut.Direction, hit.Normal));
+            float cosTheta = MathF.Max(0f, Vector3.Dot(scatter.RayOut.Direction, hit.Normal));
             foreach (var (model, weight) in _models.Where(m => m.model.IsDirect)) {
-                totalIntensity += model.GetScatterIntensity(rayIn, rayOut, hit) * weight * cosTheta;
+                totalIntensity += model.GetScatterIntensity(rayIn, scatter, hit) * weight * cosTheta;
             }
             return totalIntensity;
         }
@@ -151,9 +181,9 @@ namespace rt004.shared {
         private (Ray ray, Vector3 Intensity) ProccesModel(IScatterModel? model, float weight, Ray rayIn, HitRecord hit) {
             (Ray, Vector3) error = (new Ray(hit.Point, hit.Normal), Vector3.Zero);
             if (model is null) return error; // No model found
-            Ray rayOut = model.Scatter(rayIn, hit, Random.Shared);
-            if (rayOut.Direction == Vector3.Zero) return error; // Skip invalid rays
-            float pdf = model.GetPdf(rayIn, rayOut, hit);
+            ScatterResult scatter = model.Scatter(rayIn, hit, Random.Shared);
+            if (!scatter.IsNZ) return error; // Skip invalid rays
+            float pdf = model.GetPdf(rayIn, scatter, hit);
             if (pdf <= 0f) {
                 return error;
             }
@@ -161,9 +191,9 @@ namespace rt004.shared {
             // Final weight = (BRDF * cosTheta) / PDF * model váha
             // BRDF * cos(theta)
             float cosTheta = MathF.Max(0f, Vector3.Dot(-rayIn.Direction, hit.Normal));
-            Vector3 f = model.GetScatterIntensity(rayIn, rayOut, hit);
+            Vector3 f = model.GetScatterIntensity(rayIn, scatter, hit);
             Vector3 intensity = (f * cosTheta / pdf) * weight;
-            return (rayOut, intensity);
+            return (scatter.RayOut, intensity);
         }
     }
 
@@ -182,21 +212,21 @@ namespace rt004.shared {
         public LambertianDiffuse(Material material) { }
 
         /// <inheritdoc/>
-        public Ray Scatter(Ray rayIn, HitRecord hit, Random random) {
+        public ScatterResult Scatter(Ray rayIn, HitRecord hit, Random random) {
             Vector3 localDir = Vector3Extensions.RandomCosineDirection();
             Vector3Extensions.CreateONB(hit.Normal, out Vector3 tangent, out Vector3 bitangent);
             Vector3 worldDir = tangent * localDir.X + hit.Normal * localDir.Y + bitangent * localDir.Z;
-            return new Ray(hit.Point * hit.Normal * Constants.Epsilon, Vector3.Normalize(worldDir));
+            return new ScatterResult { RayOut = new Ray(hit.Point * hit.Normal * Constants.Epsilon, Vector3.Normalize(worldDir)) };
         }
 
         /// <inheritdoc/>
-        public Vector3 GetScatterIntensity(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public Vector3 GetScatterIntensity(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             return hit.Material.GetDiffuse(hit) / MathF.PI;
         }
 
         /// <inheritdoc/>
-        public float GetPdf(Ray rayIn, Ray rayOut, HitRecord hit) {
-            float cosine = Vector3.Dot(rayOut.Direction, hit.Normal);
+        public float GetPdf(Ray rayIn, ScatterResult scatter, HitRecord hit) {
+            float cosine = Vector3.Dot(scatter.RayOut.Direction, hit.Normal);
             return cosine > 0 ? cosine / MathF.PI : 0;
         }
     }
@@ -220,22 +250,22 @@ namespace rt004.shared {
         }
 
         /// <inheritdoc/>
-        public Ray Scatter(Ray rayIn, HitRecord hit, Random random) {
+        public ScatterResult Scatter(Ray rayIn, HitRecord hit, Random random) {
             Vector3 dir = Vector3.Normalize(rayIn.Direction.Reflect(hit.Normal));
             float dot = Vector3.Dot(hit.Normal, dir);
             if (Vector3.Dot(dir, hit.Normal) <= 0) {
-                return new(hit.Point, Vector3.Zero); // No valid reflection
+                return new ScatterResult { RayOut = new(hit.Point, Vector3.Zero) }; // No valid reflection
             };
-            return new Ray(hit.Point + hit.Normal * Constants.Epsilon, Vector3.Normalize(dir));
+            return new ScatterResult { RayOut = new Ray(hit.Point + hit.Normal * Constants.Epsilon, Vector3.Normalize(dir)) };
         }
 
         /// <inheritdoc/>
-        public Vector3 GetScatterIntensity(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public Vector3 GetScatterIntensity(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             return _reflectance;
         }
 
         /// <inheritdoc/>
-        public float GetPdf(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public float GetPdf(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             return 1.0f;
         }
     }
@@ -259,24 +289,24 @@ namespace rt004.shared {
         }
 
         /// <inheritdoc/>
-        public Ray Scatter(Ray rayIn, HitRecord hit, Random random) {
+        public ScatterResult Scatter(Ray rayIn, HitRecord hit, Random random) {
             Vector3 reflectedDir = rayIn.Direction.Reflect(hit.Normal);
             Vector3 fuzzed = reflectedDir + _fuzz * Vector3Extensions.RandomInUnitSphere();
             Vector3 dir = Vector3.Normalize(fuzzed);
             if (Vector3.Dot(dir, hit.Normal) <= 0) {
                 return default; // No valid reflection
             }
-            return new Ray(hit.Point + hit.Normal * Constants.Epsilon, dir);
+            return new ScatterResult { RayOut = new Ray(hit.Point + hit.Normal * Constants.Epsilon, dir) };
         }
 
         /// <inheritdoc/>
-        public Vector3 GetScatterIntensity(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public Vector3 GetScatterIntensity(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             return hit.Material.Specular / MathF.PI;
         }
 
         /// <inheritdoc/>
-        public float GetPdf(Ray rayIn, Ray rayOut, HitRecord hit) {
-            float cosine = Vector3.Dot(rayOut.Direction, hit.Normal);
+        public float GetPdf(Ray rayIn, ScatterResult scatter, HitRecord hit) {
+            float cosine = Vector3.Dot(scatter.RayOut.Direction, hit.Normal);
             return cosine > 0 ? cosine / MathF.PI : 0;
         }
     }
@@ -307,7 +337,7 @@ namespace rt004.shared {
         }
 
         /// <inheritdoc/>
-        public Ray Scatter(Ray rayIn, HitRecord hit, Random random) {
+        public ScatterResult Scatter(Ray rayIn, HitRecord hit, Random random) {
             Vector3 unitDirection = Vector3.Normalize(rayIn.Direction);
             float cosTheta = MathF.Min(Vector3.Dot(-unitDirection, hit.Normal), 1.0f);
             float sinTheta = MathF.Sqrt(1.0f - cosTheta * cosTheta);
@@ -315,26 +345,28 @@ namespace rt004.shared {
             float eta = hit.IsFrontFace ? 1f / _refractiveIndex : _refractiveIndex;
 
             bool cannotRefract = eta * sinTheta > 1.0f;
-            bool shouldReflect = cannotRefract; //|| Reflectance(cosTheta, eta) > random.NextSingle();
+            bool shouldReflect = cannotRefract || Reflectance(cosTheta, eta) > random.NextSingle();
 
             Ray rayOut;
+            var scatter = new ScatterResult { };
 
             if (shouldReflect) {
                 rayOut = new Ray(hit.Point + hit.Normal * Constants.Epsilon, Vector3.Normalize(unitDirection.Reflect(hit.Normal)));
-                _wasReflected = true;
+                scatter.WasReflected = true;
             }
             else {
                 Vector3 rOutPerp = eta * (unitDirection + cosTheta * hit.Normal);
                 Vector3 rOutParallel = -MathF.Sqrt(MathF.Abs(1.0f - rOutPerp.LengthSquared)) * hit.Normal;
                 rayOut = new Ray(hit.Point - hit.Normal * Constants.Epsilon, Vector3.Normalize(rOutPerp + rOutParallel));
-                _wasReflected = false;
+                scatter.WasReflected = false;
             }
-            return rayOut;
+            scatter.RayOut = rayOut;
+            return scatter;
         }
 
         /// <inheritdoc/>
-        public Vector3 GetScatterIntensity(Ray rayIn, Ray rayOut, HitRecord hit) {
-            if (_wasReflected) {
+        public Vector3 GetScatterIntensity(Ray rayIn, ScatterResult scatter, HitRecord hit) {
+            if (scatter.WasReflected != null && (bool)scatter.WasReflected) {
                 return _specular;
             }
 
@@ -352,7 +384,7 @@ namespace rt004.shared {
         }
 
         /// <inheritdoc/>
-        public float GetPdf(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public float GetPdf(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             return 1.0f;
         }
 
@@ -385,7 +417,7 @@ namespace rt004.shared {
         }
 
         /// <inheritdoc/>
-        public Ray Scatter(Ray rayIn, HitRecord hit, Random random) {
+        public ScatterResult Scatter(Ray rayIn, HitRecord hit, Random random) {
             Vector3 inDir = Vector3.Normalize(rayIn.Direction);
             Vector3 perfectReflection = inDir.Reflect(hit.Normal);
 
@@ -395,26 +427,26 @@ namespace rt004.shared {
                 return default;
             }
 
-            return new Ray(hit.Point, sampledDir);
+            return new ScatterResult { RayOut = new Ray(hit.Point, sampledDir) };
         }
 
         /// <inheritdoc/>
-        public Vector3 GetScatterIntensity(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public Vector3 GetScatterIntensity(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             Vector3 inDir = Vector3.Normalize(rayIn.Direction);
-            Vector3 outDir = Vector3.Normalize(rayOut.Direction);
+            Vector3 outDir = Vector3.Normalize(scatter.RayOut.Direction);
             Vector3 perfectReflection = inDir.Reflect(hit.Normal);
 
             float cosAlpha = Vector3.Dot(outDir, perfectReflection);
             if (cosAlpha <= 0f) return Vector3.Zero;
 
             float brdfValue = ((_shininess + 2f) / (2f * MathF.PI)) * MathF.Pow(cosAlpha, _shininess);
-            return _specularColor * brdfValue * GetPdf(rayIn, rayOut, hit);
+            return _specularColor * brdfValue * GetPdf(rayIn, scatter, hit);
         }
 
         /// <inheritdoc/>
-        public float GetPdf(Ray rayIn, Ray rayOut, HitRecord hit) {
+        public float GetPdf(Ray rayIn, ScatterResult scatter, HitRecord hit) {
             Vector3 inDir = Vector3.Normalize(rayIn.Direction);
-            Vector3 outDir = Vector3.Normalize(rayOut.Direction);
+            Vector3 outDir = Vector3.Normalize(scatter.RayOut.Direction);
             Vector3 perfectReflection = inDir.Reflect(hit.Normal);
 
             float cosAlpha = Vector3.Dot(outDir, perfectReflection);
