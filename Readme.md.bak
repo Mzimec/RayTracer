@@ -6,29 +6,36 @@ This is project which implements simple Raytracer which renders 3D scene of simp
 
 ## Scene
 
-Right now there are implemnted three types of Shapes - Sphere, Plane and Cylinder. /shared/SceneObject.cs
-There are defined three types of lights sources for direct lightning - Directional, Point, Ambient
-There is one simple type of Emissive model for light sources while using path tracing method.
+Right now there are implemnted three types of Shapes - Sphere, Plane and Cylinder. [ScenObject](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/SceneObject.cs)
+There are defined three types of lights sources for direct lightning - Directional, Point, Ambient [LightSource](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/LightSource.cs)
+There is one simple type of Emissive model for light sources while using path tracing method. [EmissiveModel](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/EmissiveModel.cs)
 Every object has defined its intersection logic based on its geometry.
-It has its Transform which defines its position, scale and rotation.
-The scene is defined in a tree graph, so you can group different objects whose Transform can be changed together.
+It has its Transform which defines its position, scale and rotation. [Transform](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Transform.cs)
+The scene is defined in a tree graph, so you can group different objects whose Transform can be changed together. [SceneGraph](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/SceneGraph.cs)
 The Scene is keeping referecnces for Lights and Camera for quicker lookup in seperate Dictionary. 
 
 ## Material
 
-Material takes care of physical traits of seperate objects. 
+Material takes care of physical traits of seperate objects. [Material](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Material.cs)
 It defines what kinds and with which weight Scatter Models will be used. It describes its color, transparency, diferent textures and so on of the object.
 The project is compatible with textures that overide color and bump maps (Textures that overide normals of objects). Additionaly there is defined Perlin noise generator for genrating noise textures.
 
+[Texture](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Texture.cs),
+[Noise](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Noise.cs)
+
 ## Scatter Model
+
+[ScatterModel](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/ScatterModel.cs)
 
 I decided to not use global BRDF and instead decided to create Scatter Model that defines for specific objects function where is the ray reflected or refracted and what is its intensity.
 This method let me add more BRDF to the project without doing any harm to the current state. Additionally using this method different objects in the scene could have different Scatter Model making this aproach more adjustible.
-Currently there are only basic models for rendering: Lambertian Diffuse Model, Phong Specular Reflection, Dialectric Refraction, Perfect Reflection and Fuzzy Reflection
+Currently there are only basic models for rendering: Lambertian Diffuse Model, Phong Specular Reflection, Dialectric Refraction, Perfect Reflection and Fuzzy Reflection.
 
 ## Ray Tracer
 
-Ray Tracer is using Perspective Camera as Ray Generator.
+[RayTracer](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/RayTracer.cs)
+
+Ray Tracer is using Perspective Camera as Ray Generator. [Camera](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/Camera.cs)
 It has two types path tracing and direct tracing which can be runed.
 The tracer has option to render using multiple threads. Each thread renders one tile of a image.
 Raytracer is using jittering as a antialiasing method to reduce unwanted effects such a Moire effect.
@@ -36,11 +43,15 @@ Raytracer is using jittering as a antialiasing method to reduce unwanted effects
 ## Output
 
 Output is an HDR image either saved as .hdr or .pmf.
-There is Tonemapper which uses logarithmic algorithm to convert 3D scene to desired .jpg image.
+There is Tonemapper which uses logarithmic algorithm to convert 3D scene to desired .jpg image. [ToneMapper](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/shared/ToneMapper.cs)
 
 ## Input
 
 The input is 3D scene defined in .json file.
+There are three example scene in:
+[config1.json](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/config1.json)
+[config2.json](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/config2.json)
+[config3.json](https://github.com/Mzimec/RayTracer/blob/main/RayTracer/rt004/config3.json)
 
 ## How to run
 
@@ -80,3 +91,8 @@ Only Direct Sampling: config2.json
 ToneMapping:
 
 ![ToneMapping](RayTracer/rt004/render._ldr.png)
+
+## Third Party
+
+Code in float image is third party code.
+
